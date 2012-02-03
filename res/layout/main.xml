@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+    android:id="@+id/widget68"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="40px"
+        android:layout_y="35px"
+        >        
+        <ImageView
+            android:src = "@drawable/zoomtouchlogo"
+            android:layout_width="124px"
+            android:layout_height="124px"
+            />
+    </FrameLayout>
+    
+    <LinearLayout
+        android:layout_width="450px"
+        android:layout_height="wrap_content"        
+        android:layout_x="120px"
+        android:layout_y="600px"            
+        >
+        <Button  
+        	android:id="@+id/internet_button"        
+          	android:src = "@drawable/internet"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            />
+        <Button
+        	android:id="@+id/telephone_button"
+           	android:src = "@drawable/telephone"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            />
+        <Button
+        	android:id="@+id/shop_button"
+            android:src = "@drawable/shop"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            />    
+    </LinearLayout>   
+    
+        <LinearLayout
+        android:layout_width="400px"
+        android:layout_height="wrap_content"        
+        android:layout_x="40px"
+        android:layout_y="200px"
+        >
+        
+        <TextView
+        android:id="@+id/OfferView"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"        
+        />       
+  
+    </LinearLayout>
+    
+    
+</AbsoluteLayout>
