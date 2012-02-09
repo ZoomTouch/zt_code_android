@@ -12,7 +12,11 @@ import zoomtouch.pac.R;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -26,14 +30,13 @@ public class ZoomTouch extends Activity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);         
         
-        WebView webview = new WebView(this);
-        setContentView(webview);      
+        setContentView(R.layout.main);   
         
-        webview.loadUrl("http://facebook.com");
-        
-      // setContentView(R.layout.main);       
-       
-    /*   final Button callButton = (Button) findViewById(R.id.telephone_button);       
+        WebView webview = (WebView) findViewById(R.id.webview);        
+        webview.loadUrl("http://nfc.get2q.com/index.php?service_id=1&tag_id=1");     
+      
+              
+      final Button callButton = (Button) findViewById(R.id.telephone_button);       
        
        callButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.telephone));
        
@@ -47,8 +50,7 @@ public class ZoomTouch extends Activity {
 			 intent.setData(Uri.parse(uri));
 			 startActivity(intent);
 		}       
-       });
-       
+       });       
        
        final Button browserButton = (Button) findViewById(R.id.internet_button);
        
@@ -78,10 +80,10 @@ public class ZoomTouch extends Activity {
 			 i.setData(Uri.parse(url));
 			 startActivity(i);
 		}       
-       });*/
+       });
 
-     //  @SuppressWarnings("unused")
-     //  AsyncTask<String, Integer, Long> network = new NetworkAccessManager(this).execute("http://wishbuddy.get2q.com/reply.php");      
+       //@SuppressWarnings("unused")
+       AsyncTask<String, Integer, Long> network = new NetworkAccessManager(this).execute("http://wishbuddy.get2q.com/reply.php");      
     }
     
     public void Parse(String data) {
@@ -91,11 +93,7 @@ public class ZoomTouch extends Activity {
 	}    
     
     public void showListView(String[] listItem) {
-    	 TextView myTextView = (TextView) findViewById(R.id.OfferView);
-    	 myTextView.append("\n");
-         myTextView.append(listItem[0]);
-         Log.d(TAG, "show list view:::"+ listItem[0] );	
-         if(listItem[0] != null)
+    	if(listItem[0] != null)
          Data.add(listItem[0]);
 	}
 }
