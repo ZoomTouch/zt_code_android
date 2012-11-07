@@ -59,7 +59,10 @@ public class XMLParser extends AsyncTask<String, String, Long>{
 	@Override
 	protected void onProgressUpdate(String... listItem) {
 		Log.d(TAG, "onProgressUpdate()" );
-		activity.showListView(listItem);		
+		for (String s : listItem)
+			Log.d(TAG, s);
+		
+		activity.showListView(listItem);
 	}
 }
 

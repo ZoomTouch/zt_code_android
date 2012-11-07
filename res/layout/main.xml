@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    android:id="@+id/widget54"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >    
+    
+<LinearLayout
     android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -9,33 +17,34 @@
     <WebView  
     android:id="@+id/webview"
     android:layout_width="fill_parent"
-    android:layout_height="600px"
+    android:layout_height="fill_parent"
     />   		
     		
    <LinearLayout
-    android:layout_width="200px"
-    android:layout_height="100px"        
+    android:layout_width="400px"
+    android:layout_height="200px"        
     android:layout_gravity="center"             
     >
         <Button  
         	android:id="@+id/internet_button"        
           	android:src = "@drawable/internet"
-            android:layout_width="60px"
-            android:layout_height="60px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             />
         <Button
         	android:id="@+id/telephone_button"
            	android:src = "@drawable/telephone"
-            android:layout_width="60px"
-            android:layout_height="60px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             />
         <Button
         	android:id="@+id/shop_button"
             android:src = "@drawable/shop"
-            android:layout_width="60px"
-            android:layout_height="60px"
+            android:layout_width="100px"
+            android:layout_height="100px"
             />    
             
     </LinearLayout>   
     
 </LinearLayout>
+</ScrollView>

@@ -14,22 +14,41 @@ public class NetworkAccessManager extends AsyncTask<String, Integer, Long>{
 	private static final String TAG = "NetworkManager";	
 	public String data;
 	private ZoomTouch activity;
+	private String phoneNumber;
+	private String email;
+	
+	public String getPhoneNumber(){
+		return phoneNumber;
+	}
+	
+	public String getEmail(){
+		return email;
+	}
 	
 	public NetworkAccessManager (ZoomTouch activity) {
 		   this.activity = activity;
 		  }
 
-	public void initializeNetwork(String[] urls){
+	public void initializeNetwork(String urls){
 
 		Log.d(TAG, "initializeNetwork()");
 		try {
-			URL url = new URL("http://wishbuddy.get2q.com/reply.php"); 
+			Log.d(TAG, urls );
+			
+			urls = "http://" + urls;
+			
+			URL url = new URL(urls);
+			Log.d(TAG, urls );
 			URLConnection conn = url.openConnection();			
 			BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 					
 			String line = null;	
 		
-			while ((line = rd.readLine()) != null) {				
+			while ((line = rd.readLine()) != null) {
+				Log.d(TAG, line );
+				/*if(line.contains("email"))
+					email = line.*/
+				
 				if(data == null)
 				data = line;
 				else 
@@ -38,24 +57,24 @@ public class NetworkAccessManager extends AsyncTask<String, Integer, Long>{
 			
 			publishProgress(1);
 		
-		} catch (UnknownHostException e) {
-			Log.e(TAG, "Server Not Found");
-		} catch (IOException e) {
-			Log.e(TAG, "Couldn't open socket");
+		} catch (Exception ex){
+			String err = (ex.getMessage()==null)?"Socket failed":ex.getMessage();
+			Log.e(TAG,err);  
 		}
 	}
 
 	@Override
 	protected Long doInBackground(String...url) {
-		Log.d(TAG, "doInBackground()" );
-		initializeNetwork(url);
+		Log.d(TAG, "doInBackground()" );		
+		initializeNetwork(url[0]);
 		return (long) 1;
 	}
 
 	@Override
 	protected void onProgressUpdate(Integer... progress) {
-		Log.d(TAG, "Network onProgressUpdate()" );	
-		activity.Parse(data);			
+		Log.d(TAG, "Network onProgressUpdate()" );
+		Log.d(TAG, data);
+		activity.Parse(data);		
 	}	
 	
 	/*@Override
